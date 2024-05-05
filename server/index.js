@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+
 app.get("/customers", (req, res) => {
   mongoClient.connect(connectionString).then((clientObject) => {
     const database = clientObject.db("Shopper");
